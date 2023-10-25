@@ -28,7 +28,7 @@ public class AgenciaDeTransito {
         Persona persona = personaNegocio.obtenerPersona(2);
         
         //Registrar automovil para crear tabla de vehiculo y automovil en la base de datos
-        Automovil automovilNuevo = new Automovil("------", "HHH999", "verde", "Tessla", "2023", "2760-9090-1010", persona);
+        Automovil automovilNuevo = new Automovil("------", "HHH999", "verde", "Tessla", "2023", "2760-9090-1010", personaNueva);
         automovilNegocio.registrarAutomovil(automovilNuevo);
 
         //Registrar licencia para crear tabla de tramite y licencia en la base de datos
