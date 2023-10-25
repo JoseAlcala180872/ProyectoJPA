@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Dominio;
 
 import java.io.Serializable;
@@ -11,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -33,6 +32,7 @@ public class Persona implements Serializable {
     @Column(name = "CURP", length = 18, nullable = false)
     private String CURP;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "FechaNacimiento", nullable = false)
     private Date FechaNacimiento;
 
