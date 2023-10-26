@@ -1,13 +1,16 @@
-
 package Dominio;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -45,6 +48,12 @@ public class Persona implements Serializable {
     @Column(name = "ApellidoMaterno", length = 50, nullable = false)
     private String ApellidoMaterno;
 
+    @OneToMany(mappedBy = "persona", cascade = {CascadeType.PERSIST})
+    private List<Tramite> listaTramites;
+
+    @OneToMany(mappedBy = "propietario", cascade = {CascadeType.PERSIST})
+    private List<Vehiculo> listaVehiculos;
+
     public Persona() {
     }
 
@@ -57,7 +66,23 @@ public class Persona implements Serializable {
         this.ApellidoPaterno = ApellidoPaterno;
         this.ApellidoMaterno = ApellidoMaterno;
     }
-    
+
+    public void agregarVehiculo(Vehiculo vehiculo) {
+
+        if (listaVehiculos == null) {
+            this.listaVehiculos = new LinkedList<>();
+        }
+        this.listaVehiculos.add(vehiculo);
+    }
+
+    public void agregarTramite(Tramite tramite) {
+
+        if (listaTramites == null) {
+            this.listaTramites = new LinkedList<>();
+        }
+        this.listaTramites.add(tramite);
+    }
+
     public int getIdPersona() {
         return idPersona;
     }
@@ -122,6 +147,22 @@ public class Persona implements Serializable {
         this.ApellidoMaterno = ApellidoMaterno;
     }
 
+    public List<Tramite> getListaTramites() {
+        return listaTramites;
+    }
+
+    public void setListaTramites(List<Tramite> listaTramites) {
+        this.listaTramites = listaTramites;
+    }
+
+    public List<Vehiculo> getListaVehiculos() {
+        return listaVehiculos;
+    }
+
+    public void setListaVehiculos(List<Vehiculo> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
+    }
+    
     @Override
     public String toString() {
         return "Persona{" + "idPersona=" + idPersona + ", RFC=" + RFC + ", Telefono=" + Telefono + ", CURP=" + CURP + ", FechaNacimiento=" + FechaNacimiento + ", Nombres=" + Nombres + ", ApellidoPaterno=" + ApellidoPaterno + ", ApellidoMaterno=" + ApellidoMaterno + '}';
@@ -148,6 +189,5 @@ public class Persona implements Serializable {
         final Persona other = (Persona) obj;
         return this.idPersona == other.idPersona;
     }
-    
-    
+
 }

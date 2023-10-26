@@ -16,9 +16,7 @@ public class Automovil extends Vehiculo implements Serializable {
     @Column(name = "Linea", length = 50, nullable = false)
     private String linea;
 
-    public Automovil(){
-        
-    }
+    public Automovil(){}
 
     public Automovil(String linea, String MATRICULA, String color, String marca, String modelo, String numeroSerie, Persona propietario) {
         super(MATRICULA, color, marca, modelo, numeroSerie, propietario);

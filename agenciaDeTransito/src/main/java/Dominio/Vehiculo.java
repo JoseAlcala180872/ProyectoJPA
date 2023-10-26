@@ -20,7 +20,7 @@ import javax.persistence.ManyToOne;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Vehiculo implements Serializable {
 
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idVehiculo")
     private int idVehiculo;
