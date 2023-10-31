@@ -9,6 +9,7 @@ import Dominio.Persona;
 import Dominio.Placa;
 import Dominio.Tramite;
 import Dominio.Vehiculo;
+import GUI.frmInicial;
 import Negocio.PersonaBO;
 import Negocio.*;
 import excepciones.BOException;
@@ -64,5 +65,8 @@ public class AgenciaDeTransito {
         }catch(BOException ex){
             Logger.getLogger(AgenciaDeTransito.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //Inicio del programa
+        frmInicial inicial=new frmInicial();
+        inicial.setVisible(true);
     }
 }
