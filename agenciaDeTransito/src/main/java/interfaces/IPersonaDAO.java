@@ -15,5 +15,7 @@ import java.util.List;
 public interface IPersonaDAO {
     
     public Persona insertar(Persona personaInsertar) throws PersistenciaException;
-
+    public Persona actualizar(Persona personaActualizar) throws PersistenciaException;
+    public Persona eliminar(Persona personaEliminar) throws PersistenciaException;
+    public Persona buscar(int idPersona) throws PersistenciaException;
 }

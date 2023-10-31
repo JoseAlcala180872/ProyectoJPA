@@ -5,6 +5,8 @@
 package Persistencia.dao;
 
 import Dominio.Persona;
+import Dominio.Tramite;
+import Dominio.Vehiculo;
 import Persistencia.conexion.Conexion;
 import excepciones.PersistenciaException;
 import interfaces.IPersonaDAO;
@@ -37,6 +39,61 @@ public class PersonaDAO implements IPersonaDAO{
             em.getTransaction().rollback();
         }
         return personaInsertar;
+    }
+    
+    @Override
+    public Persona actualizar(Persona personaActualizar)throws PersistenciaException{
+        EntityManager em = emf.createEntityManager();
+        try{
+            em.getTransaction().begin();
+            em.merge(personaActualizar);
+            em.getTransaction().commit();
+        }catch(Exception e){
+            em.getTransaction().rollback();
+        }
+        return personaActualizar;
+    }
+    
+    @Override
+    public Persona eliminar(Persona personaEliminar)throws PersistenciaException{
+        EntityManager em = emf.createEntityManager();
+        try{
+            em.getTransaction().begin();
+            if (!em.contains(personaEliminar)) {
+                // Si no está administrada, busca la entidad en el contexto de persistencia
+                personaEliminar = em.merge(personaEliminar);
+            }
+            // Elimina los trámites relacionados
+            for (Tramite tramite : personaEliminar.getListaTramites()) {
+                em.remove(tramite);
+            }
+
+            // Elimina los automóviles relacionados
+            for (Vehiculo vehiculo : personaEliminar.getListaVehiculos()) {
+                em.remove(vehiculo);
+            }
+
+            em.remove(personaEliminar);
+            em.getTransaction().commit();
+        }catch(Exception e){
+            em.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        }
+        return personaEliminar;
+    }
+    
+    @Override
+    public Persona buscar(int idPersona)throws PersistenciaException{
+        EntityManager em = emf.createEntityManager();
+        Persona personaBuscar = null;
+        try{
+            em.getTransaction().begin();
+            personaBuscar = em.find(Persona.class, idPersona);
+            em.getTransaction().commit();
+        }catch(Exception e){
+            em.getTransaction().rollback();
+        }
+        return personaBuscar;
     }
     
 }

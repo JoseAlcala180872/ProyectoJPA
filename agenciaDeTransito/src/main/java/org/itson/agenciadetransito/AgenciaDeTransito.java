@@ -4,11 +4,13 @@ package org.itson.agenciadetransito;
 
 
 import Dominio.Automovil;
+import Dominio.Licencia;
 import Dominio.Persona;
 import Dominio.Placa;
 import Dominio.Tramite;
 import Dominio.Vehiculo;
 import Negocio.PersonaBO;
+import Negocio.*;
 import excepciones.BOException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -22,6 +24,8 @@ public class AgenciaDeTransito {
     public static void main(String[] args) {
 
         PersonaBO personaBO = new PersonaBO();
+        VehiculoBO vehiculoBO = new VehiculoBO();
+        TramiteBO tramiteBO = new TramiteBO();
         Tramite tramite = new Tramite();
         Vehiculo vehiculo = new Vehiculo();
         
@@ -42,6 +46,21 @@ public class AgenciaDeTransito {
         //no le muevan, dejenlo ahí y siempre dejenlo al final de todo.
         try{
             personaBO.insertar(personaNueva);
+        }catch(BOException ex){
+            Logger.getLogger(AgenciaDeTransito.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        Persona personaPrueba = new Persona("---", "6441317080", "MARZ060101SRHKKRA1", fecha, "marcos", "zazueta", "ruiz");
+        
+        try{
+            personaBO.insertar(personaPrueba);
+        }catch(BOException ex){
+            Logger.getLogger(AgenciaDeTransito.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try{
+            Persona persona = personaBO.buscar(1);
+            Licencia licencia = new Licencia(3, fecha, "discapacitado", fecha, 1500, persona);
+            tramiteBO.insertar(licencia);  
         }catch(BOException ex){
             Logger.getLogger(AgenciaDeTransito.class.getName()).log(Level.SEVERE, null, ex);
         }

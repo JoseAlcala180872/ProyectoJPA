@@ -15,4 +15,10 @@ public interface ITramiteDAO {
     
     public Tramite insertar(Tramite tramiteInsertar) throws PersistenciaException;
     
+    public Tramite actualizar(Tramite vehiculoActualizar) throws PersistenciaException;
+    
+    public Tramite eliminar(Tramite vehiculoEliminar) throws PersistenciaException;
+    
+    public Tramite buscar(int idVehiculo) throws PersistenciaException;
+    
 }

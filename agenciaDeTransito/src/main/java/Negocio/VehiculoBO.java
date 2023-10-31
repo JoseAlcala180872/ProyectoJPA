@@ -44,15 +44,40 @@ public class VehiculoBO {
         }
     }
     
+    public Vehiculo eliminar(Vehiculo vehiculoEliminar) throws BOException{
+        try{
+            this.validarEliminarVehiculo(vehiculoEliminar);
+            return vehiculoDAO.eliminar(vehiculoEliminar);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
+        }
+    }
+    
+    public Vehiculo buscar(int idVehiculo) throws BOException{
+        try{
+            return vehiculoDAO.buscar(idVehiculo);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }
+    }
+    
     private void validarInsertarVehiculo(Vehiculo vehiculoValidar) throws ValidacionesException{
         if(vehiculoValidar == null){
-            throw new ValidacionesException("Automovil a insertar es nulo/No hay informacion");
+            throw new ValidacionesException("Vehiculo a insertar es nulo/No hay informacion");
         }
     }
     
     private void validarActualizarAutomovil(Vehiculo vehiculoValidar) throws ValidacionesException{
         if(vehiculoValidar == null){
-            throw new ValidacionesException("Automovil a actualizar es nulo/No hay informacion");
+            throw new ValidacionesException("Vehiculo a actualizar es nulo/No hay informacion");
+        }
+    }
+    
+    private void validarEliminarVehiculo(Vehiculo vehiculoValidar) throws ValidacionesException{
+        if(vehiculoValidar == null){
+            throw new ValidacionesException("Vehiculo a eliminar es nulo/No hay información");
         }
     }
     

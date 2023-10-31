@@ -31,10 +31,52 @@ public class PersonaBO {
             throw new BOException(a.getMessage(), a);
         }
     }
+      
+    public Persona actualizar(Persona personaActualizar) throws BOException{
+        try{
+            this.validarActualizarPersona(personaActualizar);
+            return personaDAO.actualizar(personaActualizar);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
+        }
+    }
+    
+    public Persona eliminar(Persona personaEliminar) throws BOException{
+        try{
+            this.validarEliminarPersona(personaEliminar);
+            return personaDAO.eliminar(personaEliminar);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
+        }
+    }
+    
+    public Persona buscar(int idPersona) throws BOException{
+        try{
+            return personaDAO.buscar(idPersona);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }
+    }
     
     private void validarInsertarPersona(Persona personaValidar) throws ValidacionesException{
         if(personaValidar == null){
             throw new ValidacionesException("Persona a insertar es nulo/No hay información");
+        }
+    }
+    
+    private void validarActualizarPersona(Persona personaValidar) throws ValidacionesException{
+        if(personaValidar == null){
+            throw new ValidacionesException("Persona a actualizar es nulo/No hay información");
+        }
+    }
+    
+    private void validarEliminarPersona(Persona personaValidar) throws ValidacionesException{
+        if(personaValidar == null){
+            throw new ValidacionesException("Persona a eliminar es nulo/No hay información");
         }
     }
 }

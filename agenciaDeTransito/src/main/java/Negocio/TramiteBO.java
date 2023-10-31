@@ -32,9 +32,51 @@ public class TramiteBO {
         }
     }
     
+    public Tramite actualizar(Tramite tramiteActualizar) throws BOException{
+        try{
+            this.validarActualizarTramite(tramiteActualizar);
+            return tramiteDAO.actualizar(tramiteActualizar);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
+        }
+    }
+    
+    public Tramite eliminar(Tramite tramiteEliminar) throws BOException{
+        try{
+            this.validarEliminarTramite(tramiteEliminar);
+            return tramiteDAO.eliminar(tramiteEliminar);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
+        }
+    }
+    
+    public Tramite buscar(int idTramite) throws BOException{
+        try{
+            return tramiteDAO.buscar(idTramite);
+        }catch(PersistenciaException e){
+            throw new BOException(e.getMessage(), e);
+        }
+    }
+    
     private void validarInsertarTramite(Tramite tramiteValidar) throws ValidacionesException{
         if(tramiteValidar == null){
             throw new ValidacionesException("Tramite a insertar nulo/No hay información");
+        }
+    }
+    
+    private void validarActualizarTramite(Tramite tramiteValidar) throws ValidacionesException{
+        if(tramiteValidar == null){
+            throw new ValidacionesException("Tramite a actualizar es nulo/No hay información");
+        }
+    }
+    
+    private void validarEliminarTramite(Tramite tramiteValidar) throws ValidacionesException{
+        if(tramiteValidar == null){
+            throw new ValidacionesException("Tramite a eliminar es nulo/No hay información");
         }
     }
 }

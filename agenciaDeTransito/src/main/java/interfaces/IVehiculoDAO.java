@@ -16,4 +16,8 @@ public interface IVehiculoDAO {
     public Vehiculo insertar(Vehiculo vehiculoInsertar) throws PersistenciaException;
     
     public Vehiculo actualizar(Vehiculo vehiculoActualizar) throws PersistenciaException;
+    
+    public Vehiculo eliminar(Vehiculo vehiculoEliminar) throws PersistenciaException;
+    
+    public Vehiculo buscar(int idVehiculo) throws PersistenciaException;
 }
