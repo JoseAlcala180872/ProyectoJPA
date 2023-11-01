@@ -48,10 +48,10 @@ public class Persona implements Serializable {
     @Column(name = "ApellidoMaterno", length = 50, nullable = false)
     private String ApellidoMaterno;
 
-    @OneToMany(mappedBy = "persona", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "persona", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Tramite> listaTramites;
 
-    @OneToMany(mappedBy = "propietario", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "propietario", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Vehiculo> listaVehiculos;
 
     public Persona() {

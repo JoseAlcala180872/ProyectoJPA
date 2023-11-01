@@ -5,8 +5,6 @@
 package Persistencia.dao;
 
 import Dominio.Persona;
-import Dominio.Tramite;
-import Dominio.Vehiculo;
 import Persistencia.conexion.Conexion;
 import excepciones.PersistenciaException;
 import interfaces.IPersonaDAO;
@@ -63,16 +61,6 @@ public class PersonaDAO implements IPersonaDAO{
                 // Si no está administrada, busca la entidad en el contexto de persistencia
                 personaEliminar = em.merge(personaEliminar);
             }
-            // Elimina los trámites relacionados
-            for (Tramite tramite : personaEliminar.getListaTramites()) {
-                em.remove(tramite);
-            }
-
-            // Elimina los automóviles relacionados
-            for (Vehiculo vehiculo : personaEliminar.getListaVehiculos()) {
-                em.remove(vehiculo);
-            }
-
             em.remove(personaEliminar);
             em.getTransaction().commit();
         }catch(Exception e){
