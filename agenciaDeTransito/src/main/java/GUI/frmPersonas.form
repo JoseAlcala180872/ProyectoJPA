@@ -171,9 +171,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\YeisiPC\Downloads\toolbar\Disc_Drive.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
       <Events>
@@ -184,9 +181,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\YeisiPC\Downloads\toolbar\Delete.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
@@ -325,9 +319,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\YeisiPC\Downloads\toolbar\folder_yellow_parent.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Regresar"/>
       </Properties>

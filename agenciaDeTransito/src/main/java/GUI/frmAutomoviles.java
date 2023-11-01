@@ -3,13 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-
+import Negocio.VehiculoBO;
+import Negocio.PersonaBO;
+import Dominio.Automovil;
+import Dominio.Persona;
+import excepciones.BOException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author José Carlos Alcalá Ruíz 180872
  */
 public class frmAutomoviles extends javax.swing.JFrame {
 
+    frmInicial frmInicial=new frmInicial();
+    private VehiculoBO vehiculoBO = new VehiculoBO();
     /**
      * Creates new form frmAutomoviles
      */
@@ -38,13 +45,13 @@ public class frmAutomoviles extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txtMatricula = new javax.swing.JTextField();
+        txtColor = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
+        txtSerie = new javax.swing.JTextField();
+        txtPropietarioId = new javax.swing.JTextField();
+        txtLinea = new javax.swing.JTextField();
 
         jTextField5.setText("jTextField5");
 
@@ -54,7 +61,6 @@ public class frmAutomoviles extends javax.swing.JFrame {
         jLabel1.setText("Registro de Automoviles");
 
         btnRegistrarAutomoviles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegistrarAutomoviles.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\Disc_Drive.png")); // NOI18N
         btnRegistrarAutomoviles.setText("Registrar");
         btnRegistrarAutomoviles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +69,6 @@ public class frmAutomoviles extends javax.swing.JFrame {
         });
 
         btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\folder_beige_parent.png")); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +77,6 @@ public class frmAutomoviles extends javax.swing.JFrame {
         });
 
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\Delete.png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,19 +105,19 @@ public class frmAutomoviles extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Linea:");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtMatricula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtColor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtMarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtModelo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtSerie.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtPropietarioId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtLinea.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,8 +141,8 @@ public class frmAutomoviles extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8)))
+                            .addComponent(txtPropietarioId)
+                            .addComponent(txtLinea)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -148,12 +152,12 @@ public class frmAutomoviles extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField6)
+                            .addComponent(txtColor)
+                            .addComponent(txtMarca)
+                            .addComponent(txtModelo)
+                            .addComponent(txtSerie)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -165,31 +169,31 @@ public class frmAutomoviles extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPropietarioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLinea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarAutomoviles)
@@ -204,11 +208,26 @@ public class frmAutomoviles extends javax.swing.JFrame {
 
     private void btnRegistrarAutomovilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAutomovilesActionPerformed
         // TODO add your handling code here:
+        try{
+            
+            PersonaBO personaBO = new PersonaBO();
+            Persona propietario = personaBO.buscar(Integer.parseInt(txtPropietarioId.getText()));
+            Automovil automovil = new Automovil(txtLinea.getText(), txtMatricula.getText(), txtColor.getText(), txtMarca.getText(), txtModelo.getText(), txtSerie.getText(), propietario);
+            this.vehiculoBO.insertar(automovil);
+            
+            JOptionPane.showMessageDialog(null, "Se ha registrado el automovil en el sistema con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE); 
+            this.dispose();
+            this.frmInicial.setVisible(true);
+        }catch(BOException ex){
+            
+            JOptionPane.showMessageDialog(null, "Error: no se ha podido registrar a la persona correctamente", "Registro De Persona", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btnRegistrarAutomovilesActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        frmInicial frmInicial=new frmInicial();
-        frmInicial.setVisible(true);
+        
+        this.frmInicial.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
@@ -264,13 +283,13 @@ public class frmAutomoviles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtLinea;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtMatricula;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtPropietarioId;
+    private javax.swing.JTextField txtSerie;
     // End of variables declaration//GEN-END:variables
 }

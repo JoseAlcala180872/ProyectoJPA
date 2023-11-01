@@ -3,13 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-
+import Dominio.Persona;
+import Negocio.PersonaBO;
+import excepciones.BOException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author José Carlos Alcalá Ruíz 180872
  */
 public class frmPersonas extends javax.swing.JFrame {
 
+    frmInicial frmInicial=new frmInicial();
+    private PersonaBO personaBO = new PersonaBO();
     /**
      * Creates new form frmPersonas
      */
@@ -277,13 +285,26 @@ public class frmPersonas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        frmInicial frmInicial=new frmInicial();
-        frmInicial.setVisible(true);
+
+        this.frmInicial.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnRegistrarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPersonaActionPerformed
         // TODO add your handling code here:
+         try{
+             
+            Date fechaNacimiento = new Date(Integer.parseInt(txtAño.getText()), Integer.parseInt(txtMes.getText()), Integer.parseInt(txtDia.getText()));
+            Persona persona = new Persona(txtRFC.getText(), txtTelefono.getText(), txtCURP.getText(), fechaNacimiento, txtNombres.getText(), txtApellidoPaterno.getText(), txtApellidoMaterno.getText());
+            this.personaBO.insertar(persona);
+            
+            JOptionPane.showMessageDialog(null, "Se ha registrado a la persona en el sistema con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE); 
+            this.dispose();
+            this.frmInicial.setVisible(true);
+        }catch(BOException ex){
+            
+             JOptionPane.showMessageDialog(null, "Error: no se ha podido registrar a la persona correctamente", "Registro De Persona", JOptionPane.ERROR_MESSAGE);
+        } 
     }//GEN-LAST:event_btnRegistrarPersonaActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

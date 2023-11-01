@@ -4,12 +4,22 @@
  */
 package GUI;
 
+import Dominio.Licencia;
+import Negocio.TramiteBO;
+import Dominio.Persona;
+import Negocio.PersonaBO;
+import excepciones.BOException;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author José Carlos Alcalá Ruíz 180872
  */
 public class frmLicencias extends javax.swing.JFrame {
 
+    frmTramites tramites=new frmTramites();
+    private TramiteBO tramiteBO = new TramiteBO();
     /**
      * Creates new form frmLicencias
      */
@@ -36,16 +46,16 @@ public class frmLicencias extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        txtDiaExpedicion = new javax.swing.JTextField();
+        txtCosto = new javax.swing.JTextField();
+        txtPropietarioId = new javax.swing.JTextField();
+        txtVigencia = new javax.swing.JTextField();
+        txtDiaVencimiento = new javax.swing.JTextField();
+        txtTipoLicencia = new javax.swing.JTextField();
+        txtMesExpedicion = new javax.swing.JTextField();
+        txtAñoExpedicion = new javax.swing.JTextField();
+        txtMesVencimiento = new javax.swing.JTextField();
+        txtAñoVencimiento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,11 +63,14 @@ public class frmLicencias extends javax.swing.JFrame {
         lblLicencias.setText("Registro de licencias");
 
         btnRegistrarLicencia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegistrarLicencia.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\Disc_Drive.png")); // NOI18N
         btnRegistrarLicencia.setText("Registrar");
+        btnRegistrarLicencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarLicenciaActionPerformed(evt);
+            }
+        });
 
         btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\folder_beige_parent.png")); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +79,6 @@ public class frmLicencias extends javax.swing.JFrame {
         });
 
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\Delete.png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,17 +104,17 @@ public class frmLicencias extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Tipo de licencia:");
 
-        jTextField1.setText("DD");
+        txtDiaExpedicion.setText("DD");
 
-        jTextField5.setText("DD");
+        txtDiaVencimiento.setText("DD");
 
-        jTextField8.setText("MM");
+        txtMesExpedicion.setText("MM");
 
-        jTextField9.setText("AAAA");
+        txtAñoExpedicion.setText("AAAA");
 
-        jTextField12.setText("MM");
+        txtMesVencimiento.setText("MM");
 
-        jTextField13.setText("AAAA");
+        txtAñoVencimiento.setText("AAAA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,38 +135,38 @@ public class frmLicencias extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2))
+                                .addComponent(txtCosto))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3))
+                                .addComponent(txtPropietarioId))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDiaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMesVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtAñoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
+                                .addComponent(txtTipoLicencia, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblLicencias)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDiaExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtMesExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(txtAñoExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -165,31 +177,31 @@ public class frmLicencias extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiaExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMesExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAñoExpedicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPropietarioId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMesVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAñoVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTipoLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarLicencia)
@@ -208,10 +220,29 @@ public class frmLicencias extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        frmTramites tramites=new frmTramites();
-        tramites.setVisible(true);
+        this.tramites.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnRegistrarLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarLicenciaActionPerformed
+        // TODO add your handling code here:
+        try{
+            
+            Date fechaExpedicion = new Date(Integer.parseInt(txtAñoExpedicion.getText()), Integer.parseInt(txtMesExpedicion.getText()), Integer.parseInt(txtDiaExpedicion.getText()));
+            Date fechaVencimiento = new Date(Integer.parseInt(txtAñoVencimiento.getText()), Integer.parseInt(txtMesVencimiento.getText()), Integer.parseInt(txtDiaVencimiento.getText()));
+            PersonaBO personaBO = new PersonaBO();
+            Persona propietario = personaBO.buscar(Integer.parseInt(txtPropietarioId.getText()));
+            Licencia licencia = new Licencia(Integer.parseInt(txtVigencia.getText()), fechaVencimiento, txtTipoLicencia.getText(), fechaExpedicion, Float.parseFloat(txtCosto.getText()), propietario);
+            this.tramiteBO.insertar(licencia);
+            
+            JOptionPane.showMessageDialog(null, "Se proceso el trámite con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE); 
+            this.dispose();
+            this.tramites.setVisible(true);
+        }catch(BOException ex){
+            
+            JOptionPane.showMessageDialog(null, "Error: no se ha podido registrar a la persona correctamente", "Registro De Persona", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnRegistrarLicenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,16 +289,16 @@ public class frmLicencias extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblLicencias;
+    private javax.swing.JTextField txtAñoExpedicion;
+    private javax.swing.JTextField txtAñoVencimiento;
+    private javax.swing.JTextField txtCosto;
+    private javax.swing.JTextField txtDiaExpedicion;
+    private javax.swing.JTextField txtDiaVencimiento;
+    private javax.swing.JTextField txtMesExpedicion;
+    private javax.swing.JTextField txtMesVencimiento;
+    private javax.swing.JTextField txtPropietarioId;
+    private javax.swing.JTextField txtTipoLicencia;
+    private javax.swing.JTextField txtVigencia;
     // End of variables declaration//GEN-END:variables
 }

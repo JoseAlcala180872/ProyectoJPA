@@ -39,31 +39,31 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField2" max="32767" attributes="0"/>
+                              <Component id="txtCosto" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField3" max="32767" attributes="0"/>
+                              <Component id="txtPropietarioId" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtVigencia" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField5" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="txtDiaVencimiento" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField12" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="txtMesVencimiento" min="-2" pref="42" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField13" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="txtAñoVencimiento" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField6" pref="369" max="32767" attributes="0"/>
+                              <Component id="txtTipoLicencia" pref="369" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -71,11 +71,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblLicencias" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextField1" min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="txtDiaExpedicion" min="-2" pref="46" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField8" min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="txtMesExpedicion" min="-2" pref="46" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField9" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <Component id="txtAñoExpedicion" min="-2" pref="55" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -94,36 +94,36 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDiaExpedicion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMesExpedicion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAñoExpedicion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCosto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPropietarioId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtVigencia" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDiaVencimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMesVencimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAñoVencimiento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTipoLicencia" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="51" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -150,19 +150,16 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\YeisiPC\Documents\GitHub\ProyectoJPA\agenciaDeTransito\resources\toolbar\Disc_Drive.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarLicenciaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRegresar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\YeisiPC\Documents\GitHub\ProyectoJPA\agenciaDeTransito\resources\toolbar\folder_beige_parent.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Regresar"/>
       </Properties>
@@ -174,9 +171,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\YeisiPC\Documents\GitHub\ProyectoJPA\agenciaDeTransito\resources\toolbar\Delete.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
@@ -232,40 +226,40 @@
         <Property name="text" type="java.lang.String" value="Tipo de licencia:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtDiaExpedicion">
       <Properties>
         <Property name="text" type="java.lang.String" value="DD"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="txtCosto">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="txtPropietarioId">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="txtVigencia">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="txtDiaVencimiento">
       <Properties>
         <Property name="text" type="java.lang.String" value="DD"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="txtTipoLicencia">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField8">
+    <Component class="javax.swing.JTextField" name="txtMesExpedicion">
       <Properties>
         <Property name="text" type="java.lang.String" value="MM"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
+    <Component class="javax.swing.JTextField" name="txtA&#xf1;oExpedicion">
       <Properties>
         <Property name="text" type="java.lang.String" value="AAAA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField12">
+    <Component class="javax.swing.JTextField" name="txtMesVencimiento">
       <Properties>
         <Property name="text" type="java.lang.String" value="MM"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField13">
+    <Component class="javax.swing.JTextField" name="txtA&#xf1;oVencimiento">
       <Properties>
         <Property name="text" type="java.lang.String" value="AAAA"/>
       </Properties>
