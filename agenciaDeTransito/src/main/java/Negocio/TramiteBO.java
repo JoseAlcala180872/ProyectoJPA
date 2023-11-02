@@ -56,9 +56,12 @@ public class TramiteBO {
     
     public Tramite buscar(int idTramite) throws BOException{
         try{
+            this.validarBuscarTramite(idTramite);
             return tramiteDAO.buscar(idTramite);
         }catch(PersistenciaException e){
             throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
         }
     }
     
@@ -77,6 +80,12 @@ public class TramiteBO {
     private void validarEliminarTramite(Tramite tramiteValidar) throws ValidacionesException{
         if(tramiteValidar == null){
             throw new ValidacionesException("Tramite a eliminar es nulo/No hay información");
+        }
+    }
+    
+    private void validarBuscarTramite(int tramiteValidar) throws ValidacionesException{
+        if(tramiteValidar <= 0){
+            throw new ValidacionesException("Tramite buscado es nulo/No hay información");
         }
     }
 }
