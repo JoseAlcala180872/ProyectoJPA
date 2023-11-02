@@ -56,9 +56,12 @@ public class PersonaBO {
     
     public Persona buscar(int idPersona) throws BOException{
         try{
+            this.validarBuscarPersona(idPersona);
             return personaDAO.buscar(idPersona);
         }catch(PersistenciaException e){
             throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
         }
     }
     
@@ -77,6 +80,12 @@ public class PersonaBO {
     private void validarEliminarPersona(Persona personaValidar) throws ValidacionesException{
         if(personaValidar == null){
             throw new ValidacionesException("Persona a eliminar es nulo/No hay información");
+        }
+    }
+    
+    private void validarBuscarPersona(int personaValidar) throws ValidacionesException{
+        if(personaValidar <= 0){
+            throw new ValidacionesException("Persona a buscar es nulo/No hay información");
         }
     }
 }

@@ -57,9 +57,12 @@ public class VehiculoBO {
     
     public Vehiculo buscar(int idVehiculo) throws BOException{
         try{
+            this.validarBuscarVehiculo(idVehiculo);
             return vehiculoDAO.buscar(idVehiculo);
         }catch(PersistenciaException e){
             throw new BOException(e.getMessage(), e);
+        }catch(ValidacionesException a){
+            throw new BOException(a.getMessage(), a);
         }
     }
     
@@ -78,6 +81,12 @@ public class VehiculoBO {
     private void validarEliminarVehiculo(Vehiculo vehiculoValidar) throws ValidacionesException{
         if(vehiculoValidar == null){
             throw new ValidacionesException("Vehiculo a eliminar es nulo/No hay información");
+        }
+    }
+    
+    private void validarBuscarVehiculo(int vehiculoValidar) throws ValidacionesException {
+        if(vehiculoValidar <= 0){
+            throw new ValidacionesException("Vehiculo a buscar es nulo/No hay información");
         }
     }
     

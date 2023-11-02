@@ -38,7 +38,6 @@ public class frmInicial extends javax.swing.JFrame {
         lblTitulo.setText("Sistema de tramites veihucular del estado de Sonora");
 
         btnRegistrarPersona.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRegistrarPersona.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\Disc_Drive.png")); // NOI18N
         btnRegistrarPersona.setText("Registrar persona");
         btnRegistrarPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,7 +46,6 @@ public class frmInicial extends javax.swing.JFrame {
         });
 
         btnTramites.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnTramites.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\folder_beige_mydocuments.png")); // NOI18N
         btnTramites.setText("Tramites");
         btnTramites.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +54,6 @@ public class frmInicial extends javax.swing.JFrame {
         });
 
         btnRegistroAutomoviles.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRegistroAutomoviles.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\folder_black_mydocuments.png")); // NOI18N
         btnRegistroAutomoviles.setText("Automoviles");
         btnRegistroAutomoviles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +62,6 @@ public class frmInicial extends javax.swing.JFrame {
         });
 
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\YeisiPC\\Documents\\GitHub\\ProyectoJPA\\agenciaDeTransito\\resources\\toolbar\\Delete.png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,8 +73,12 @@ public class frmInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addComponent(lblTitulo)
+                .addGap(96, 96, 96))
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(60, 60, 60)
                 .addComponent(btnRegistrarPersona)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnTramites)
@@ -87,23 +87,19 @@ public class frmInicial extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitulo)
-                .addGap(96, 96, 96))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarPersona)
                     .addComponent(btnTramites)
                     .addComponent(btnRegistroAutomoviles)
                     .addComponent(btnSalir))
-                .addGap(94, 94, 94))
+                .addGap(99, 99, 99))
         );
 
         pack();
@@ -111,19 +107,19 @@ public class frmInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTramitesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTramitesActionPerformed
-        frmTramites tramites=new frmTramites();
+        frmTramites tramites = new frmTramites();
         tramites.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnTramitesActionPerformed
 
     private void btnRegistrarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPersonaActionPerformed
-        frmPersonas frmPersonas=new frmPersonas();
-        frmPersonas.setVisible(true);
+        frmPersonas personas = new frmPersonas();
+        personas.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarPersonaActionPerformed
 
     private void btnRegistroAutomovilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroAutomovilesActionPerformed
-        frmAutomoviles autos=new frmAutomoviles();
+        frmAutomoviles autos = new frmAutomoviles();
         autos.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistroAutomovilesActionPerformed

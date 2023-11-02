@@ -25,8 +25,7 @@ public class Placa extends Tramite implements Serializable {
     @Column(name = "FechaRecepcion")
     private Date fechaRecepcion;
     
-    public Placa(){  
-    }
+    public Placa(){}
     
     public Placa(boolean esVehiculoNuevo, String numeroAlfanumerico, Date fechaExpedicion, Date fechaRecepcion, float costo, Persona persona) {
         super(fechaExpedicion, costo, persona);
